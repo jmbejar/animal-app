@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'animals/(index)', to: 'animals#index'
+  get 'animals/(*path)', to: 'animals#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
