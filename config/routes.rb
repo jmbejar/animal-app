@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  get 'animals/(*path)', to: 'animals#index'
+  resources :animal_divisions, only: [:index, :show]
+  resources :animal_classes, only: [:show]
+  resources :animal_subclasses, only: [:show]
+  resources :animals, only: [:show]
+
+  #get 'animals/(*path)', to: 'animals#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

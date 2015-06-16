@@ -1,0 +1,12 @@
+<h1>Catálogo de animales</h1>
+
+<div class="animals-body">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <p class="lead"><%= @animal.name.titleize %></p>
+      <img class="img-rounded" src="<%= image_path("#{@animal.name}.jpg") %>" width="400" />
+    </div>
+  </div>
+</div>
+
+<p>Back to <%= link_to @animal.parent.name.titleize, @animal.parent %></p>

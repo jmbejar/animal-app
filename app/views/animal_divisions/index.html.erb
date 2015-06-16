@@ -1,0 +1,13 @@
+<h1>Catálogo de animales</h1>
+
+<div class="animals-body">
+  <div class="panel panel-default">
+    <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+          <% @divisions.each do |division| %>
+            <li role="presentation"><%= link_to division.name.titleize, division %></li>
+          <% end %>
+        </ul>
+    </div>
+  </div>
+</div>

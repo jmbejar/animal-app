@@ -1,0 +1,2 @@
+module AnimalSubclassesHelper
+end

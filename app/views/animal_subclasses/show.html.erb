@@ -1,0 +1,16 @@
+<h1>Catálogo de animales</h1>
+
+<div class="animals-body">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <p class="lead"><%= @subclass.name.titleize %></p>
+      <ul class="nav nav-pills nav-stacked">
+        <% @subclass.animals.each do |animal| %>
+          <li role="presentation"><%= link_to animal.name.titleize, animal %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<p>Back to <%= link_to @subclass.animal_class.name.titleize, @subclass.animal_class %></p>
