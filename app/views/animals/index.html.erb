@@ -1,1 +1,24 @@
 <h1>Catálogo de animales</h1>
+
+<div class="animals-body">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <% if @current %>
+        <p class="lead"><%= @current.titleize %></p>
+      <% end %>
+      <% if @children.empty? %>
+        <img class="img-rounded" src="<%= image_path("#{@current}.jpg") %>" width="400" />
+      <% else%>
+        <ul class="nav nav-pills nav-stacked">
+          <% @children.each do |child| %>
+            <li role="presentation"><a href="<%= "/#{@current_path}/#{child}" %>"><%= child.to_s.titleize %></a></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% if @current %>
+  <p>Back to <a href="/<%= @parent_path %>"><%= @parent.titleize %></a></p>
+<% end %>
