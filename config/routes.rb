@@ -1,10 +1,28 @@
-Rails.application.routes.draw do
-  resources :animal_divisions, only: [:index, :show]
-  resources :animal_classes, only: [:show]
-  resources :animal_subclasses, only: [:show]
-  resources :animals, only: [:show]
 
-  #get 'animals/(*path)', to: 'animals#index'
+class AnimalConstraint
+  def matches?(request)
+    Animal.where(name: request.params[:animal]).exists?
+  end
+end
+class AnimalSubclassConstraint
+  def matches?(request)
+    AnimalSubclass.where(name: request.params[:subclass]).exists?
+  end
+end
+
+Rails.application.routes.draw do
+  #resources :animal_divisions, only: [:index, :show]
+  #resources :animal_classes, only: [:show]
+  #resources :animal_subclasses, only: [:show]
+  #resources :animals, only: [:show]
+
+
+  get 'animals', to: 'animal_divisions#index'
+  get 'animals/:division', to: 'animal_divisions#show', as: :animal_division
+  get 'animals/:division/:class', to: 'animal_classes#show', as: :animal_class
+  get 'animals/:division/:class/:subclass', to: 'animal_subclasses#show', as: :animal_subclass, constraints: AnimalSubclassConstraint.new
+  get 'animals/:division/:class/:animal', to: 'animals#show', as: :class_animal, constraints: AnimalConstraint.new
+  get 'animals/:division/:class/:subclass/:animal', to: 'animals#show', as: :subclass_animal
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -15,13 +15,13 @@ vertebrados = AnimalDivision.create(name: 'vertebrados')
 
 mamiferos = AnimalClass.create(name: 'mamiferos', animal_division: vertebrados)
 carnivoros = AnimalSubclass.create(name: 'carnivoros', animal_class: mamiferos)
-herviboros = AnimalSubclass.create(name: 'herviboros', animal_class: mamiferos)
+herbivoros = AnimalSubclass.create(name: 'herbivoros', animal_class: mamiferos)
 
 Animal.create(name: 'gato', animal_subclass: carnivoros)
 Animal.create(name: 'lince', animal_subclass: carnivoros)
 Animal.create(name: 'lobo', animal_subclass: carnivoros)
-Animal.create(name: 'girafa', animal_subclass: herviboros)
-Animal.create(name: 'ñu', animal_subclass: herviboros)
+Animal.create(name: 'girafa', animal_subclass: herbivoros)
+Animal.create(name: 'ñu', animal_subclass: herbivoros)
 
 aves = AnimalClass.create(name: 'aves', animal_division: vertebrados)
 

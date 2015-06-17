@@ -4,6 +4,6 @@ class AnimalDivisionsController < ApplicationController
   end
 
   def show
-    @division = AnimalDivision.find(params[:id])
+    @division = AnimalDivision.find_by_name(params[:division])
   end
 end

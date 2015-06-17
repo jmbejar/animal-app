@@ -9,4 +9,8 @@
   </div>
 </div>
 
-<p>Back to <%= link_to @animal.parent.name.titleize, @animal.parent %></p>
+<% if @animal.animal_subclass %>
+  <p>Back to <%= link_to @animal.parent.name.titleize, animal_subclass_path(@animal.animal_subclass.animal_class.animal_division.name, @animal.animal_subclass.animal_class.name, @animal.animal_subclass.name) %></p>
+<% else %>
+  <p>Back to <%= link_to @animal.parent.name.titleize, animal_class_path(@animal.animal_class.animal_division.name, @animal.animal_class.name) %></p>
+<% end %>

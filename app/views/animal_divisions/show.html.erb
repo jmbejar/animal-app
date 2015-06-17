@@ -6,11 +6,11 @@
       <p class="lead"><%= @division.name.titleize %></p>
       <ul class="nav nav-pills nav-stacked">
         <% @division.animal_classes.each do |klass| %>
-          <li role="presentation"><%= link_to klass.name.titleize, klass %></li>
+          <li role="presentation"><%= link_to klass.name.titleize, animal_class_path(@division.name, klass.name) %></li>
         <% end %>
       </ul>
     </div>
   </div>
 </div>
 
-<p>Back to <%= link_to 'Home Page', animal_divisions_path %></p>
+<p>Back to <%= link_to 'Main Menu', animals_path %></p>

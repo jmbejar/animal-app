@@ -1,5 +1,5 @@
 class AnimalClassesController < ApplicationController
   def show
-    @klass = AnimalClass.find(params[:id])
+    @klass = AnimalClass.find_by_name(params[:class])
   end
 end
