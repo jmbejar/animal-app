@@ -3,25 +3,25 @@ class Animal
     def find(path)
       parts = path.split('/')
 
-      data = classification
+      children = taxonomy
       current, parent = nil
 
       parts.each do |part|
         parent = current
         current = part
-        data = if data.is_a? Hash
-                 data[part.to_sym]
-               else
-                 []
-               end
+        children = if children.is_a? Hash
+                     children[part.to_sym]
+                   else
+                     []
+                   end
       end
 
-      data = data.keys if data.is_a? Hash
+      children = children.keys if children.is_a? Hash
 
-      { current: current, children: data, parent: parent }
+      { current: current, children: children, parent: parent }
     end
 
-    def classification
+    def taxonomy
       {
         vertebrados: {
           mamiferos: {
