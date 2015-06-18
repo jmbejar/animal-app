@@ -28,6 +28,17 @@ ActiveRecord::Schema.define(version: 20150616162252) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "animal_species", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "animal_class_id"
+    t.integer  "animal_subclass_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "animal_species", ["animal_class_id"], name: "index_animal_species_on_animal_class_id"
+  add_index "animal_species", ["animal_subclass_id"], name: "index_animal_species_on_animal_subclass_id"
+
   create_table "animal_subclasses", force: :cascade do |t|
     t.string   "name"
     t.integer  "animal_class_id"
@@ -36,16 +47,5 @@ ActiveRecord::Schema.define(version: 20150616162252) do
   end
 
   add_index "animal_subclasses", ["animal_class_id"], name: "index_animal_subclasses_on_animal_class_id"
-
-  create_table "animals", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "animal_class_id"
-    t.integer  "animal_subclass_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-  end
-
-  add_index "animals", ["animal_class_id"], name: "index_animals_on_animal_class_id"
-  add_index "animals", ["animal_subclass_id"], name: "index_animals_on_animal_subclass_id"
 
 end

@@ -1,4 +1,4 @@
-class Animal < ActiveRecord::Base
+class AnimalSpecie < ActiveRecord::Base
   belongs_to :animal_class
   belongs_to :animal_subclass
 

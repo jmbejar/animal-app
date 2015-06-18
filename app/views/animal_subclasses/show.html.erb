@@ -5,8 +5,8 @@
     <div class="panel-body">
       <p class="lead"><%= @subclass.name.titleize %></p>
       <ul class="nav nav-pills nav-stacked">
-        <% @subclass.animals.each do |animal| %>
-          <li role="presentation"><%= link_to animal.name.titleize, subclass_animal_path(@subclass.animal_class.animal_division.name, @subclass.animal_class.name, @subclass.name, animal.name) %></li>
+        <% @subclass.animal_species.each do |specie| %>
+          <li role="presentation"><%= link_to specie.name.titleize, specie_from_subclass_path(@subclass.animal_class.animal_division.name, @subclass.animal_class.name, @subclass.name, specie.name) %></li>
         <% end %>
       </ul>
     </div>

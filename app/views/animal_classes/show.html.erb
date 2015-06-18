@@ -5,11 +5,11 @@
     <div class="panel-body">
       <p class="lead"><%= @klass.name.titleize %></p>
       <ul class="nav nav-pills nav-stacked">
-        <% @klass.animals.each do |child| %>
-          <li role="presentation"><%= link_to child.name.titleize, class_animal_path(@klass.animal_division.name, @klass.name, child.name) %></li>
+        <% @klass.animal_species.each do |specie| %>
+          <li role="presentation"><%= link_to specie.name.titleize, specie_from_class_path(@klass.animal_division.name, @klass.name, specie.name) %></li>
         <% end %>
-        <% @klass.animal_subclasses.each do |child| %>
-          <li role="presentation"><%= link_to child.name.titleize, animal_subclass_path(@klass.animal_division.name, @klass.name, child.name) %></li>
+        <% @klass.animal_subclasses.each do |subclass| %>
+          <li role="presentation"><%= link_to subclass.name.titleize, animal_subclass_path(@klass.animal_division.name, @klass.name, subclass.name) %></li>
         <% end %>
       </ul>
     </div>

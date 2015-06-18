@@ -1,0 +1,16 @@
+<h1>Catálogo de animales</h1>
+
+<div class="animals-body">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <p class="lead"><%= @specie.name.titleize %></p>
+      <img class="img-rounded" src="<%= image_path("#{@specie.name}.jpg") %>" width="400" />
+    </div>
+  </div>
+</div>
+
+<% if @specie.animal_subclass %>
+  <p>Back to <%= link_to @specie.parent.name.titleize, animal_subclass_path(@specie.animal_subclass.animal_class.animal_division.name, @specie.animal_subclass.animal_class.name, @specie.animal_subclass.name) %></p>
+<% else %>
+  <p>Back to <%= link_to @specie.parent.name.titleize, animal_class_path(@specie.animal_class.animal_division.name, @specie.animal_class.name) %></p>
+<% end %>
